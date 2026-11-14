@@ -16,7 +16,7 @@ The root `Dockerfile` builds the frontend and runs it from the Express server, s
    - `JWT_SECRET=<strong secret>`
    - `EMAIL_USER=<Gmail address>`
    - `EMAIL_PASS=<Gmail app password>`
-   - `CLIENT_URL=<your Render service URL>`
+   - `CLIENT_URL=<frontend origin>` only if the frontend is hosted separately; Render's `RENDER_EXTERNAL_URL` is allowed automatically for this single-service setup.
    Set `MONGO_URI` in the service's **Environment** settings before deploying. Production requires a persistent MongoDB connection; the in-memory database is only used for local development and tests.
 4. Deploy. Render provides the `PORT` environment variable; the server listens on it.
 5. Verify `https://<render-app>.onrender.com/api/health`.
