@@ -17,6 +17,7 @@ The root `Dockerfile` builds the frontend and runs it from the Express server, s
    - `EMAIL_USER=<Gmail address>`
    - `EMAIL_PASS=<Gmail app password>`
    - `CLIENT_URL=<your Render service URL>`
+   Set `MONGO_URI` in the service's **Environment** settings before deploying. Production requires a persistent MongoDB connection; the in-memory database is only used for local development and tests.
 4. Deploy. Render provides the `PORT` environment variable; the server listens on it.
 5. Verify `https://<render-app>.onrender.com/api/health`.
 
@@ -61,6 +62,7 @@ The frontend uses same-origin API requests in production. Set `VITE_API_BASE_URL
 2. Create a database user with read/write permissions.
 3. Add your deployment IP or allow all IPs during setup.
 4. Copy the connection string into `MONGO_URI`.
+5. In Render, open the web service's **Environment** settings, add `MONGO_URI`, paste the connection string, and save. Render will redeploy the service.
 
 ## Gmail App Password setup
 1. Enable 2-Step Verification on the Gmail account.
